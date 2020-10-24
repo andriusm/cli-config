@@ -1,0 +1,49 @@
+alias s='cd ..'
+alias ls='ls --time-style="+%Y-%m-%d %H:%M:%S" --color=auto'
+alias ll='ls -lFh'
+alias la='ls -laFh'
+alias l='ls -Fh'
+
+alias t='tree'
+
+alias cp='cp -i'
+alias df='df -h'
+alias free='free -m'
+alias rs='git reset --hard'
+
+alias ff='find ~/Documents/freq -type f | fzf | vimin'
+alias ee='fzf | vimin'
+alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress --'
+
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
+
+alias youtube-dl='youtube-dl --merge-output-format mp4'
+alias 2ascii="perl -pe 's/\e\[?.*?[\@-~]//g'"
+alias cdtmp='cd `mktemp -d /tmp/experiment-XXXXXX`'
+alias tig='tig --no-merges'
+
+alias cnt="find . -type f | wc -l"
+alias pjt='python -mjson.tool'
+alias oras='curl -s http://wttr.in/Vilnius'
+
+alias ggpull='git pull origin $(current_branch)'
+alias ggpur='git pull --rebase origin $(current_branch)'
+alias ggpush='git push origin $(current_branch)'
+alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
+alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gam='git commit -a --amend --no-edit'
+alias gbr="git for-each-ref --sort=committerdate refs/heads/"
+
+alias memcache-reset='echo "flush_all" | nc localhost 11211'
+alias all-specs="RAILS_ENV=test NO_JAVASCRIPT_TESTS=1 SKIP_ASSETS_BUILD=1 bundle exec rake testing:parallel[9]"
+alias del-merged="git branch --merged|grep -v master | xargs -I % sh -c 'git branch -d %'"
+
+alias open="xdg-open"
+
+alias ks="pkill -f spring; pkill -f spring"
+alias pro='hub pull-request -o'
+
+alias pony='ponysay -o hello'
+
+alias fm='mpv https://netradio.ziniur.lt/easyfm.mp3'

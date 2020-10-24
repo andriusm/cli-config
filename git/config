@@ -1,0 +1,72 @@
+[user]
+  name = Andrius 
+  email = andriusms@gmail.com
+[color]
+	ui = auto
+[alias]
+	fap = fetch --all --prune
+	pom = pull origin master
+
+	a = add
+	c = commit
+    br = branch
+	co = checkout
+	amend = commit --amend
+	st = status
+	s = status --short --untracked-files
+	
+	#mr = "!sh -c 'git checkout -b merge-requests/$1; git pull origin refs/merge-requests/$1' -"
+
+	r = rebase
+	ri = rebase --interactive
+	rc = rebase --continue
+	rs = rebase --skip
+
+	di = diff
+	dc = diff --cached
+	ds = diff --stat=160,120
+	dh1 = diff HEAD~1
+
+	l = log --graph --abbrev-commit --date=relative
+	head = !git l -1
+	h = !git head
+	la = !git l --all
+	b = branch --verbose
+	re = remote --verbose
+	redo = reset --soft HEAD^
+	purge = !git reset --hard && git clean -fd
+	listconf = config --global --list
+	ctags = !.git/hooks/ctags
+	spull = svn rebase
+	spush = svn dcommit
+[format]
+	pretty = format:%C(yellow)%h%Creset %G? -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
+[core]
+	editor = vim
+	autocrlf = input
+	safecrlf = false
+	excludesfile = .global_git_ignore
+	quotepath = false
+	commitGraph = true
+[diff]
+	guitool = kdiff3
+[difftool "winmerge"]
+	cmd = winmergeu $LOCAL $REMOTE
+[merge]
+	tool = kdiff3
+[credential]
+[apply]
+	whitespace = nowarn
+
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+#[gpg]
+#	program = gpg
+#[url "git@github.com:"]
+#	insteadOf = https://github.com/
+[pull]
+	ff = only
+[gc]
+	writeCommitGraph = true

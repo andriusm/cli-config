@@ -1,0 +1,12 @@
+function f() {
+	  git co -b feature/$1
+  }
+
+function b() {
+	  git br | fzf | xargs git checkout 
+  }
+
+function h() {
+	  history -i | sort | uniq | cut -d ';' -f 2 | fzf --no-sort
+  }
+

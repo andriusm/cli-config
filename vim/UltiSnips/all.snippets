@@ -1,0 +1,18 @@
+global !p
+def do_stuff():
+  import json
+  return json.loads('{"asdf" : 3}')
+endglobal
+
+snippet a
+`!p snip.rv = do_stuff()`
+endsnippet
+
+snippet b
+`cal`
+endsnippet
+
+snippet c
+`!p snip.rv = dir(snip)`
+endsnippet
+

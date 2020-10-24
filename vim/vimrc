@@ -1,0 +1,142 @@
+let &runtimepath=&runtimepath . "," . $HOME . "/.config/vim"
+"let $VIMRUNTIME="$HOME/.config/vim"
+"let $VIMHOME="$HOME/.config/vim"
+"let $VIM = "/home/crash/.config/vim/"
+
+"let g:netrw_dirhistmax = 0
+let g:netrw_home=$HOME . ".local/share/vim"
+
+execute pathogen#infect()
+
+syntax on
+filetype plugin on
+
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#disable_runtime_snippets = { "_": 1, }
+
+setlocal omnifunc=syntaxcomplete#Complete
+
+"set term=screen-256color
+colorscheme solarized
+set termguicolors
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+if has('gui_running')
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=m
+  set guifont=Inconsolata:h14
+endif
+
+if has("gui_macvim")
+  noremap <C-Tab> :tabnext<CR>
+  noremap <C-S-Tab> :tabprev<CR>
+
+  noremap <D-1> :tabn 1<CR>
+  noremap <D-2> :tabn 2<CR>
+  noremap <D-3> :tabn 3<CR>
+  noremap <D-4> :tabn 4<CR>
+  noremap <D-5> :tabn 5<CR>
+  noremap <D-6> :tabn 6<CR>
+  noremap <D-7> :tabn 7<CR>
+  noremap <D-8> :tabn 8<CR>
+  noremap <D-9> :tabn 9<CR>
+  noremap <D-0> :tablast<CR>
+endif
+
+set background=light
+set number
+set nowrap
+set ic
+set hlsearch
+
+set noswapfile
+set nobackup
+
+set smartindent
+set autoindent
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set splitbelow
+set nofoldenable
+set laststatus=2
+
+set t_Co=256
+set pastetoggle=<F2>
+
+let mapleader = ","
+let maplocalleader = "\\"
+
+"colorscheme molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Ultisnips
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_term_mode = "vsplit"
+let g:go_term_enabled = 0
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+" mappings
+nnoremap <D-\> :vsplit<cr>
+
+nnoremap <D-l> :wincmd l<CR>
+
+noremap <S-D-Right> <C-w>l<CR>
+noremap <S-D-Left> <C-w>h<CR>
+noremap <S-D-Up> <C-w>k<CR>
+noremap <S-D-Down> <C-w>j<CR>
+
+nnoremap ; :
+
+let $PATH = "/usr/bin:" . $PATH 
+
+set nocompatible
+set viminfo=%,<800,'10,/50,:100,h,f0,n~/.local/share/vim/.viminfo
+
