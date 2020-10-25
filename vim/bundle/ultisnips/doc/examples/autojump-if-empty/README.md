@@ -25,9 +25,7 @@ However, with UltiSnips, it can be done via only one keypress:
 
 ## Implementation
 
-Using awesome [vim-pythonx
-library](https://github.com/reconquest/vim-pythonx/blob/master/pythonx/px/snippets.py),
-which provides set of functions to make coding little bit easier.
+This example uses the [vim-pythonx library](https://github.com/reconquest/vim-pythonx/blob/master/pythonx/px/snippets.py) which provides set of functions to make coding little bit easier.
 
 ```
 global !p
@@ -46,7 +44,7 @@ def clean_first_placeholder(snip):
     # Jumper is a helper for performing jumps in UltiSnips.
     px.snippets.make_jumper(snip)
 
-    if snip.tabstop == 2 and not get_jumper_text(snip):
+    if snip.tabstop == 2 and not px.snippets.get_jumper_text(snip):
         line = snip.buffer[snip.cursor[0]]
         snip.buffer[snip.cursor[0]] = \
             line[:snip.tabstops[1].start[1]-2] + \
